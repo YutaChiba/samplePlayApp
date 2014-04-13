@@ -1,0 +1,30 @@
+@(loginForm: Form[Application.LoginForm])
+
+@import helper._
+
+@main(title = "The 'helloworld' application") {
+    
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")" >
+    <script src="@routes.Assets.at("bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    
+    <h1>BuzzCam</h1>
+    
+    @form(action = routes.Application.login, args = 'id -> "loginForm") {
+        
+        
+        @inputText(
+            field = loginForm("id"),
+            args = '_label -> "ID", 'placeholder -> "ID"
+        )
+        
+        @inputText(
+            field = loginForm("password"),
+            args = '_label -> "PW", 'placeholder -> "PW"
+        )
+        
+        <input type="submit" value="ログイン" class="btn btn-primary">
+     }
+     
+      
+    
+}

@@ -1,0 +1,16 @@
+@(id: String, password: String)
+
+@main("Here is the result:") {
+    
+    <!-- DBのデータと照合して認証 -->
+    @if(id=="yuta" && password=="0301"){
+    	<h1>ログイン成功！</h1>
+    } else {
+    	<h1>IDまたはパスワードが間違っています。</h1>
+    }
+    
+    <p class="buttons">
+        <a href="@routes.Application.index">Back to the form</a>
+    </p>
+    
+}
