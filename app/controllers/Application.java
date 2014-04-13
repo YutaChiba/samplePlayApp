@@ -70,8 +70,14 @@ public class Application extends Controller {
         System.out.println(loginId);
         
         if (account.get(0).loginId.equals(loginId)) {
-        	System.out.println("成功");
-        	return ok(login.render(loginId, password));
+        	
+        	if(account.get(0).password.equals(password)) {
+        		System.out.println("成功");
+        		return ok(campaignList.render("ログイン成功！"));
+        	}
+        	
+        	System.out.println("失敗");
+        	return ok(index.render(form(LoginForm.class)));
         } else {
         	System.out.println("失敗");
         	return ok(index.render(form(LoginForm.class)));
